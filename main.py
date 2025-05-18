@@ -56,7 +56,7 @@ def set_stride(root, path):
     try:
         # Открываем ключ на запись (создаёт, если не существует)
         key = winreg.CreateKey(root, path)
-        winreg.SetValueEx(key, "Stride", 0, winreg.REG_DWORD, 10240)
+        winreg.SetValueEx(key, "Stride", 0, winreg.REG_DWORD, stride)
         key.Close()
         print(f"Параметр Stride создан в {path}")
     except Exception as e:
@@ -78,7 +78,7 @@ def main():
                 tgt_key_00 = winreg.CreateKey(root, target_path_00)
                 copy_values(src_key_00, tgt_key_00)
                 # Создаём Stride у целевого ключа
-                winreg.SetValueEx(tgt_key_00, "Stride", 0, winreg.REG_DWORD, 10240)
+                winreg.SetValueEx(tgt_key_00, "Stride", 0, winreg.REG_DWORD, stride)
                 tgt_key_00.Close()
                 print(f"Скопированы значения и создан Stride в {target_path_00}")
             except Exception as e:
@@ -90,7 +90,7 @@ def main():
                 tgt_key_0000 = winreg.CreateKey(root, target_path_0000)
                 copy_values(src_key_0000, tgt_key_0000)
                 # Создаём Stride у целевого ключа
-                winreg.SetValueEx(tgt_key_0000, "Stride", 0, winreg.REG_DWORD, 10240)
+                winreg.SetValueEx(tgt_key_0000, "Stride", 0, winreg.REG_DWORD, stride)
                 tgt_key_0000.Close()
                 print(f"Скопированы значения и создан Stride в {target_path_0000}")
             except Exception as e:
